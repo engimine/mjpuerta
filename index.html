@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>María Jesús Puerta Angulo · Ingeniería que protege</title>
+<meta name="description" content="Ingeniera de minas. Más de 30 años en obra y subsuelo, reconocida por la NASA. Ingeniería que protege a las personas, con la IA en manos del técnico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080c;--bg2:#10131a;--line:#222836;--ink:#eef0f4;--mute:#97a0b0;--gold:#e8b04b;--gold2:#ffd690;--cyan:#6fd3e8;--red:#ef6a5b;--green:#4cc38a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+body.locked{overflow:hidden}
+a{color:var(--gold2)}
+.mono{font-family:"JetBrains Mono",monospace}
+
+#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at 50% 55%,#141826 0%,#030406 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity 1.2s}
+#gate.out{opacity:0;pointer-events:none}
+#gate .k{letter-spacing:.35em;text-transform:uppercase;font-size:12px;color:var(--mute)}
+#gate button{background:none;border:1px solid var(--gold);color:var(--gold2);font:600 15px Inter;letter-spacing:.2em;text-transform:uppercase;padding:18px 38px;border-radius:999px;cursor:pointer}
+#gate button:hover{background:var(--gold);color:#111}
+#gate .silent{border:none;color:var(--mute);text-decoration:underline;font-size:12px;letter-spacing:0;text-transform:none;padding:0}
+#gate .silent:hover{background:none;color:var(--ink)}
+
+#snd{position:fixed;right:18px;bottom:18px;z-index:40;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(16,19,26,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px}
+#snd i{display:block;width:3px;height:6px;background:var(--gold);border-radius:2px}
+#snd.on i{animation:eq 1s infinite ease-in-out}#snd.on i:nth-child(2){animation-delay:.2s}#snd.on i:nth-child(3){animation-delay:.4s}#snd.on i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:5px}50%{height:20px}}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:40px 16px;overflow:hidden}
+#stars{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;z-index:2;text-align:center;max-width:980px}
+#orbit{width:min(520px,86vw);height:auto;display:block;margin:0 auto 10px;overflow:visible}
+.o-line{fill:none;stroke:rgba(232,176,75,.35);stroke-width:1.2;stroke-dasharray:4 7}
+.o-draw{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:1400;stroke-dashoffset:1400}
+.go .o-draw{animation:draw 3.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fade{opacity:0;transform:translateY(18px);transition:all 1.2s ease}
+.go .fade{opacity:1;transform:none}
+.go .d1{transition-delay:1.6s}.go .d2{transition-delay:2.4s}.go .d3{transition-delay:3.1s}.go .d4{transition-delay:3.8s}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(40px,7.4vw,92px);line-height:1.02;letter-spacing:-.01em}
+h1 span{display:block;background:linear-gradient(180deg,var(--gold2),var(--gold) 65%,#a5711b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{margin-top:16px;color:var(--mute);letter-spacing:.18em;text-transform:uppercase;font-size:clamp(11px,1.3vw,13px)}
+.claim{font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.8vw,32px);margin-top:22px}
+.scroll{margin-top:34px;color:var(--mute);font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+
+section{padding:110px 16px;position:relative}
+.wrap{max-width:1120px;margin:0 auto}
+.eyebrow{color:var(--gold);letter-spacing:.3em;text-transform:uppercase;font-size:12px;font-weight:600}
+h2{font-family:Fraunces,serif;font-weight:600;font-size:clamp(30px,4.8vw,56px);line-height:1.08;margin:14px 0 20px}
+.lead{font-size:clamp(17px,2vw,20px);color:#cdd2da;max-width:760px}
+.reveal{opacity:0;transform:translateY(36px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* regla */
+.rule{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:46px}
+.rule .b{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center}
+.rule .b b{display:block;font-family:Fraunces,serif;font-size:30px}
+.rule .b small{color:var(--mute)}
+.rule .arr{font-size:34px;color:var(--gold)}
+
+/* trayectoria */
+.path{position:relative;margin-top:50px}
+.path::before{content:"";position:absolute;left:0;right:0;top:34px;height:2px;background:linear-gradient(90deg,#5a4520,var(--gold),var(--cyan),var(--gold))}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.step .dot{width:70px;height:70px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px}
+.step h3{font-family:Fraunces,serif;font-size:21px}
+.step p{color:var(--mute);font-size:14px;margin-top:4px}
+
+/* proyectos */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.card .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan)}
+.card h3{font-family:Fraunces,serif;font-size:28px;margin:6px 0 8px}
+.card p{color:#c4cad3;font-size:15px}
+.card .norm{margin-top:12px;font-size:12px;color:var(--mute)}
+.card.live{border-color:#2d4d3c}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:8px;box-shadow:0 0 0 0 rgba(76,195,138,.7);animation:pl 1.8s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 12px rgba(76,195,138,0)}100%{box-shadow:0 0 0 0 rgba(76,195,138,0)}}
+.livebox{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.livebox div{background:#0b0e14;border:1px solid var(--line);border-radius:12px;padding:12px}
+.livebox b{display:block;font-family:Fraunces,serif;font-size:26px;color:var(--green);font-variant-numeric:tabular-nums}
+.livebox span{font-size:11px;color:var(--mute)}
+
+/* reconocimientos */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.aw{border-top:2px solid var(--gold);padding-top:16px}
+.aw b{font-family:Fraunces,serif;font-size:21px;display:block}
+.aw p{color:var(--mute);font-size:14px;margin-top:4px}
+.aw a{font-size:13px}
+blockquote{margin-top:56px;font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(22px,3vw,34px);border-left:3px solid var(--gold);padding-left:24px;max-width:900px}
+blockquote cite{display:block;font-style:normal;font-family:Inter;font-size:13px;color:var(--mute);margin-top:12px}
+
+/* formación */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.list li{list-style:none;padding:12px 0;border-bottom:1px solid var(--line);color:#cdd2da}
+.list li small{color:var(--mute);display:block}
+.press{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.press a{border:1px solid var(--line);border-radius:999px;padding:9px 16px;text-decoration:none;color:var(--ink);font-size:14px}
+.press a:hover{border-color:var(--gold)}
+
+.who{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center}
+.who img{width:100%;border-radius:20px;filter:grayscale(.15) contrast(1.05)}
+.who small{color:var(--mute);font-size:11px}
+
+#fin{text-align:center;padding:140px 16px}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{padding:15px 28px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--gold);color:var(--gold2)}
+.btn.p{background:var(--gold);color:#16110a}
+footer{border-top:1px solid var(--line);padding:30px 16px;color:var(--mute);font-size:13px;text-align:center}
+
+@media(max-width:900px){.grid,.cols{grid-template-columns:1fr}.awards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.path::before{display:none}.who{grid-template-columns:1fr}.who img{max-width:260px}}
+@media(max-width:560px){.awards,.steps,.livebox{grid-template-columns:1fr}.rule{grid-template-columns:1fr}.rule .arr{transform:rotate(90deg);text-align:center}section{padding:80px 16px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate">
+  <div class="k">María Jesús Puerta Angulo</div>
+  <button id="enter">Entrar con sonido</button>
+  <button id="enterSilent" class="silent">o entrar sin sonido</button>
+</div>
+<button id="snd" aria-label="Música"><i></i><i></i><i></i><i></i></button>
+<audio id="music" src="assets/musica.mp3" preload="auto" loop></audio>
+
+<header id="hero">
+  <canvas id="stars"></canvas>
+  <div class="hero-in">
+    <svg id="orbit" viewBox="0 0 520 300" aria-hidden="true">
+      <defs>
+        <radialGradient id="earth" cx=".35" cy=".35"><stop offset="0" stop-color="#7fd6ec"/><stop offset=".6" stop-color="#2a6f9a"/><stop offset="1" stop-color="#0d2236"/></radialGradient>
+        <radialGradient id="moon" cx=".35" cy=".35"><stop offset="0" stop-color="#f3f0e6"/><stop offset="1" stop-color="#7c786e"/></radialGradient>
+        <radialGradient id="mars" cx=".35" cy=".35"><stop offset="0" stop-color="#f19a6b"/><stop offset="1" stop-color="#7a2e18"/></radialGradient>
+      </defs>
+      <ellipse class="o-line" cx="260" cy="160" rx="230" ry="96"/>
+      <path class="o-draw" d="M120 210 C 180 60, 330 40, 400 92 S 470 190, 430 220"/>
+      <circle cx="120" cy="210" r="34" fill="url(#earth)"/>
+      <circle cx="400" cy="92" r="17" fill="url(#moon)"/>
+      <circle cx="455" cy="214" r="12" fill="url(#mars)"/>
+      <circle r="4" fill="#ffd690"><animateMotion dur="7s" repeatCount="indefinite" path="M120 210 C 180 60, 330 40, 400 92 S 470 190, 430 220"/></circle>
+    </svg>
+    <h1 class="fade d1">María Jesús<span>Puerta Angulo</span></h1>
+    <div class="role fade d2">Ingeniera de minas · +30 años en obra y subsuelo · NASA LunaRecycle</div>
+    <p class="claim fade d3">Ingeniería que protege a las personas,<br>con la IA en manos del técnico.</p>
+    <div class="scroll fade d4">Baja ↓</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Mi regla de trabajo</div>
+      <h2>La IA prepara.<br>El técnico decide y firma.</h2>
+      <p class="lead">Llevo más de treinta años en minería, túneles, voladuras y obra. Todo lo que construyo con inteligencia artificial respeta una condición: la responsabilidad sigue siendo de la persona que conoce el terreno. La tecnología le quita horas de papel y le devuelve tiempo para mirar la obra.</p>
+    </div>
+    <div class="rule reveal">
+      <div class="b"><b>IA</b><small>lee fotos, satélite, LiDAR, presupuesto y modelo BIM</small></div>
+      <div class="arr">→</div>
+      <div class="b"><b>Técnico</b><small>revisa, corrige, decide y firma con su nombre</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Trayectoria</div>
+      <h2>Del subsuelo a la Luna.<br>Y de vuelta a la obra.</h2>
+    </div>
+    <div class="path reveal">
+      <div class="steps">
+        <div class="step"><div class="dot">⛏️</div><h3>Subsuelo</h3><p>Minería a cielo abierto e interior, túneles y voladuras controladas.</p></div>
+        <div class="step"><div class="dot">🏗️</div><h3>Obra</h3><p>Coordinación, seguridad y calidad. Asesora de constructoras como Dragados y Acciona.</p></div>
+        <div class="step"><div class="dot">🌕</div><h3>Luna</h3><p>Gemelo digital para reciclar residuos en una base lunar. Reconocida por la NASA.</p></div>
+        <div class="step"><div class="dot">🔴</div><h3>Marte</h3><p>Sistema de alimentos para 15 personas durante 500 soles. Dos rondas superadas.</p></div>
+        <div class="step"><div class="dot">🦺</div><h3>Vuelta a la obra</h3><p>Lo aprendido fuera de la Tierra, aplicado a la seguridad del técnico aquí.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Lo que hago hoy</div>
+      <h2>Proyectos que ya funcionan.</h2>
+    </div>
+    <div class="grid">
+      <div class="card reveal"><div class="tag">Seguridad y salud en obra</div><h3>VELA</h3><p>De la foto y el acta de obra a un informe de calidad, medio ambiente y prevención que firma el técnico. Anonimiza las caras y detecta las no conformidades que se repiten de una visita a otra.</p><div class="norm mono">ISO 9001 · ISO 14001 · ISO 45001 · RD 1627/1997</div></div>
+      <div class="card live reveal"><div class="tag"><span class="pulse"></span>Satélite · funcionando ahora</div><h3>VIGÍA</h3><p>Agente que vigila cada día el riesgo de incendio forestal en España con datos de satélite y avisa. He publicado su validación nacional, también lo que todavía no consigue: vigila y avisa, no predice dónde.</p>
+        <div class="livebox"><div><b id="vDias">78</b><span>días seguidos avisando</span></div><div><b id="vPuntos">1.012</b><span>puntos vigilados</span></div><div><b id="v7">21</b><span>avisos en 7 días</span></div></div>
+        <div class="norm mono" id="vNota">Datos en directo del sistema · bitácora pública, los errores también se registran</div></div>
+      <div class="card reveal"><div class="tag">Minería · LiDAR y dron</div><h3>Canteras</h3><p>Planes de labores con nube de puntos LiDAR oficial y vuelos de dron propios. La geometría de bancos, bermas y pistas se comprueba contra la norma antes de dibujar un solo plano.</p><div class="norm mono">RGNBSM · ITC 07.1.03 · RD 975/2009</div></div>
+      <div class="card reveal"><div class="tag">Vivienda industrializada</div><h3>DOVELA</h3><p>El contrato de hitos que hace financiable una obra industrializada en cooperativa. Lo presenta mi empresa, ARISTOSIA PROJECTS, en la categoría de digitalización.</p><div class="norm"><a href="https://engimine.github.io/dovela/" target="_blank" rel="noopener">Ver DOVELA →</a></div></div>
+      <div class="card reveal"><div class="tag">Espacio · NASA</div><h3>ESPERANZA I · Luna</h3><p>Gemelo digital que clasifica residuos con IA, los procesa por pirólisis, recupera metales y fabrica material de construcción con el propio suelo lunar.</p><div class="norm">NASA LunaRecycle Challenge, Fase 1, track Digital Twin: único equipo internacional reconocido en ese track.</div></div>
+      <div class="card reveal"><div class="tag">Espacio · NASA</div><h3>ESPERANZA II · Marte</h3><p>Producción de alimentos para una tripulación de 15 personas durante 500 soles. Superó el corte de admisión y dos rondas de evaluación del jurado de la NASA.</p><div class="norm">Preprint: <a href="https://doi.org/10.5281/zenodo.22713680" target="_blank" rel="noopener">DOI 10.5281/zenodo.22713680</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Reconocimientos</div>
+      <h2>Lo que dicen otros.</h2>
+    </div>
+    <div class="awards">
+      <div class="aw reveal"><b>NASA LunaRecycle Challenge</b><p>Fase 1, track Digital Twin. Único equipo internacional reconocido en ese track (2025).</p><a href="https://news.eng.ua.edu/2025/06/innovators-from-9-u-s-states-4-countries-win-phase-1-of-nasas-lunarecycle-challenge/" target="_blank" rel="noopener">Anuncio oficial →</a></div>
+      <div class="aw reveal"><b>Reconeixement UPC Projecció Global</b><p>Creado y concedido por el Consell Social de la UPC (14-nov-2025).</p><a href="https://govern.upc.edu/ca/cs/ple-del-consell-social/ple-10/" target="_blank" rel="noopener">Acuerdo del Consell Social →</a></div>
+      <div class="aw reveal"><b>Insignia de Oro del COITIRM</b><p>Día Internacional de la Mujer Ingeniera (23-jun-2026). Entregué los premios Future Women Engineering Talent a jóvenes ingenieras.</p><a href="https://businesswomenrm.es/asi-fue-la-entrega-de-la-insignia-de-oro-del-coitirm-a-maria-jesus-puerta-la-ingeniera-premiada-por-la-nasa/" target="_blank" rel="noopener">Crónica del acto →</a></div>
+      <div class="aw reveal"><b>Glamour Women of the Year</b><p>Reconocimiento de la revista Glamour España.</p><a href="https://www.glamour.es/articulos/maria-jesus-entrevista-woty-2025" target="_blank" rel="noopener">Entrevista →</a></div>
+      <div class="aw reveal"><b>Comité Científico</b><p>Presidenta del Área de IA y Transformación Digital, XVI Congreso Internacional de Energía y Recursos Minerales.</p></div>
+      <div class="aw reveal"><b>Colegios profesionales</b><p>Junta de Gobierno del Colegio de Ingenieros de Minas del Nordeste. Comisión de Ingeniería Médica y Sanitaria del COIIM.</p></div>
+    </div>
+    <blockquote class="reveal">«Ha demostrat que una enginyera pot esdevenir exemple per a moltes nenes i noies.»<cite>Consell Social de la Universitat Politècnica de Catalunya, acuerdo del 14 de noviembre de 2025</cite></blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Abrir la puerta</div>
+      <h2>Que la tecnología no deje a nadie fuera.</h2>
+      <p class="lead">Enseño IA a técnicos y técnicas que nunca se habían considerado digitales, en obra, en empresa y en una comunidad abierta en español.</p>
+    </div>
+    <div class="cols">
+      <ul class="list reveal">
+        <li>Future Women Engineering Talent<small>Entregué los premios a jóvenes ingenieras y estudiantes (COITIRM, 2026)</small></li>
+        <li>«Somiar en gran»<small>Conferencia en la jornada 11F de la UPC, Día de la Mujer y la Niña en la Ciencia (2026)</small></li>
+        <li>El Club de los Frikis<small>Comunidad abierta y gratuita para aprender IA en español sin ser técnico</small></li>
+        <li>Formación en IA para empresas<small>Cementos Molins y equipos técnicos de construcción e ingeniería</small></li>
+        <li>Charla TEDx «Una Esperanza con dos órbitas»<small><a href="https://youtu.be/CsCu5s_VEaI" target="_blank" rel="noopener">Ver charla →</a></small></li>
+      </ul>
+      <div class="reveal">
+        <div class="eyebrow">Formación</div>
+        <ul class="list" style="margin-top:10px">
+          <li>Ingeniería en Recursos Naturales y Energéticos<small>UPC</small></li>
+          <li>Máster en Ingeniería de Minas<small>UPC</small></li>
+          <li>Máster en Prevención de Riesgos Laborales<small>UPC</small></li>
+          <li>Máster en IA aplicada a la Ingeniería y la Arquitectura</li>
+          <li>Máster en Ingeniería y Gestión Ambiental<small>VIU</small></li>
+          <li>Máster en Arquitectura y Bioconstrucción</li>
+          <li>Grado en Administración y Gestión Inmobiliaria<small>URV</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap who">
+    <div class="reveal"><img src="assets/foto.jpg" alt="María Jesús Puerta Angulo"><small>Foto: Flavio Orsolato · Glamour</small></div>
+    <div class="reveal">
+      <div class="eyebrow">En prensa</div>
+      <h2>Contado por otros.</h2>
+      <div class="press">
+        <a href="https://www.europapress.es/ciencia/noticia-ingeniera-espanola-gana-concurso-nasa-reducir-residuos-lunares-queda-premio-no-ser-eeuu-20250612173339.html" target="_blank" rel="noopener">Europa Press</a>
+        <a href="https://www.expansion.com/directivos/estilo-vida/salud/2025/07/15/687614ba468aebee3b8b4579.html" target="_blank" rel="noopener">Expansión</a>
+        <a href="https://www.lavanguardia.com/lacontra/20260323/11496369/maria-jesus-puertas-nasa-me-dio-diploma-millon-extranjera.html" target="_blank" rel="noopener">La Vanguardia</a>
+        <a href="https://www.elespanol.com/mujer/lastop100/20260702/reto-ciclista-almudena-martorell-reconocimiento-maria-jesus-puerta-agenda-top/1003744303852_0.html" target="_blank" rel="noopener">El Español</a>
+        <a href="https://www.eldebate.com/espana/cataluna/20260304/ingeniera-tarraconense-vuelve-nasa-disenar-futuro-menu-astronautas-rumbo-marte_392011.html" target="_blank" rel="noopener">El Debate</a>
+        <a href="https://www.upc.edu/es/sala-de-prensa/noticias/la-upc-conmemora-el-dia-internacional-de-la-mujer-y-la-nina-en-la-ciencia-con-una-jornada-en-la-epsevg" target="_blank" rel="noopener">UPC</a>
+        <a href="https://universidadeuropea.com/noticias/maria-jesus-puerta-gana-concurso-nasa-disenar-recicladores-lunares/" target="_blank" rel="noopener">Universidad Europea</a>
+        <a href="https://aviaciondigital.com/de-la-tierra-a-la-luna-con-esperanza-la-historia-de-superacion-de-maria-jesus-puerta/" target="_blank" rel="noopener">Aviación Digital</a>
+        <a href="https://www.diarimes.com/es/tarragona/260303/ingeniera-tarragona-disenara-menus-astronautas-viajen-marte_211211.html" target="_blank" rel="noopener">Diari Més</a>
+        <a href="https://www.glamour.es/articulos/maria-jesus-entrevista-woty-2025" target="_blank" rel="noopener">Glamour</a>
+      </div>
+      <p class="lead" style="margin-top:28px;font-size:16px">Ha colaborado con Amazon Web Services, BBVA, Oracle, Cementos Molins, Dragados, Acciona, Talent Arena (MWC), Port de Barcelona, UPC, UPM y el Clúster de Residus de Catalunya.</p>
+    </div>
+  </div>
+</section>
+
+<section id="fin">
+  <div class="reveal">
+    <div class="eyebrow">Premis ConTech 2026 · Women for ConTech</div>
+    <h2>Que nadie se haga daño construyendo.</h2>
+    <div class="btns">
+      <a class="btn p" href="https://www.linkedin.com/in/mariajesuspuertaangulo/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://mariajesuspuertaangulo.com" target="_blank" rel="noopener">Web personal</a>
+      <a class="btn" href="https://orcid.org/0009-0007-8096-5070" target="_blank" rel="noopener">ORCID</a>
+    </div>
+  </div>
+</section>
+<footer>María Jesús Puerta Angulo · Ingeniera de minas · Barcelona</footer>
+
+<script>
+(()=>{
+const $=id=>document.getElementById(id), music=$('music'), snd=$('snd');let on=false;
+function fade(to,ms){const f=music.volume,t0=performance.now();(function s(t){const k=Math.min(1,(t-t0)/ms);music.volume=f+(to-f)*k;if(k<1)requestAnimationFrame(s);else if(to===0)music.pause();})(t0);}
+async function play(){try{music.volume=0;await music.play();on=true;snd.classList.add('on');fade(.55,2500);}catch(e){}}
+snd.onclick=()=>{if(on){fade(0,600);on=false;snd.classList.remove('on');}else play();};
+function enter(s){$('gate').classList.add('out');document.body.classList.remove('locked');if(s)play();setTimeout(()=>$('hero').classList.add('go'),300);}
+$('enter').onclick=()=>enter(true);$('enterSilent').onclick=()=>enter(false);
+
+/* estrellas */
+const c=$('stars'),x=c.getContext('2d');let S=[];
+function rs(){c.width=c.offsetWidth*devicePixelRatio;c.height=c.offsetHeight*devicePixelRatio;}rs();addEventListener('resize',rs);
+for(let i=0;i<160;i++)S.push({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.2,t:Math.random()*6});
+(function l(t){x.clearRect(0,0,c.width,c.height);S.forEach(s=>{const a=.35+.35*Math.sin(t/900+s.t);x.fillStyle=`rgba(255,240,215,${a})`;x.beginPath();x.arc(s.x*c.width,s.y*c.height,s.r*devicePixelRatio,0,7);x.fill();});requestAnimationFrame(l);})(0);
+
+/* aparición */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* VIGÍA en directo */
+fetch('https://vigia.fzegcr.easypanel.host/api/estado').then(r=>r.json()).then(d=>{
+  const b=d.bitacora||{}, pts=(d.zonas||[]).reduce((a,z)=>a+(z.puntos||0),0);
+  if(b.dias_consecutivos_con_aviso)$('vDias').textContent=b.dias_consecutivos_con_aviso;
+  if(pts)$('vPuntos').textContent=pts.toLocaleString('es-ES');
+  if(b.avisos_ultimos_7_dias!=null)$('v7').textContent=b.avisos_ultimos_7_dias;
+  if(d.ultimo_ciclo)$('vNota').textContent='En directo · último ciclo '+new Date(d.ultimo_ciclo).toLocaleString('es-ES',{dateStyle:'medium',timeStyle:'short'})+' · bitácora pública, los errores también se registran';
+}).catch(()=>{$('vNota').textContent='Datos del 11-oct-2026 · bitácora pública del sistema';});
+})();
+</script>
+</body>
+</html>
